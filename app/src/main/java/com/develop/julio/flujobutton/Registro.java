@@ -75,18 +75,21 @@ public class Registro extends AppCompatActivity {
 
                     if (rbusuario.isChecked()){
                         irDatos.putExtra("tipo","usuario");
-                        startActivityForResult(irDatos,Datos.DATOS_REQUEST);
-                        finish();
+                        //startActivityForResult(irDatos,Datos.DATOS_REQUEST);
+                        //finish();
                     }else if(rbasistente.isChecked()){
                         irDatos.putExtra("tipo","asistente");
-                        startActivityForResult(irDatos,Datos.DATOS_REQUEST);
-                        finish();
+                        //startActivityForResult(irDatos,Datos.DATOS_REQUEST);
+                        //finish();
                     }else if (rbadministrador.isChecked()){
                         irDatos.putExtra("tipo","administrador");
-                        startActivityForResult(irDatos,Datos.DATOS_REQUEST);
-                        finish();
+                        //startActivityForResult(irDatos,Datos.DATOS_REQUEST);
+                        //finish();
                     }
-
+                    else {
+                        Toast.makeText(getApplicationContext(),"debes seleccionar un cargo",Toast.LENGTH_SHORT).show();
+                    }
+                    startActivityForResult(irDatos,Datos.DATOS_REQUEST);
                 }
             }
         });
@@ -114,11 +117,17 @@ public class Registro extends AppCompatActivity {
             if (resultCode == RESULT_CANCELED){
                 Toast.makeText(getApplicationContext(),"operacion cancelada",Toast.LENGTH_SHORT).show();
                 //Bundle datos = getIntent().getExtras();
+                String tipo="";
+                try{
 
-                Bundle d = data.getExtras();
-                edtnombre.setText(d.getString("nombre"));
-                edtemail.setText(d.getString("email"));
-                String tipo = d.getString("tipo");
+                    Bundle d = data.getExtras();
+                    edtnombre.setText(d.getString("nombre"));
+                    edtemail.setText(d.getString("email"));
+                     tipo = d.getString("tipo");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
                 switch (tipo){
                     case "usuario":
                         rbusuario.setChecked(true);

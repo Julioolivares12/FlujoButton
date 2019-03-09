@@ -17,6 +17,8 @@ public class Datos extends AppCompatActivity {
     private TextView tvnombre,tvemail,tvclave,tvtipo;
 
     private Button btnconfirmar,btncancelar;
+
+    String nombre , correo , contraseña,tipo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +38,14 @@ public class Datos extends AppCompatActivity {
         Bundle datos = getIntent().getExtras();
 
 
-        tvnombre.setText("nombre "+ "  "+datos.getString("nombre"));
-        tvemail.setText("correo"+" "+datos.getString("email"));
-        tvclave.setText("contraseña"+" "+datos.getString("pass"));
-        tvtipo.setText("tipo"+" "+datos.getString("tipo"));
+        nombre = datos.getString("nombre");
+        correo = datos.getString("email");
+        contraseña = datos.getString("pass");
+        tipo = datos.getString("tipo");
+        tvnombre.setText("nombre "+ "  "+nombre);
+        tvemail.setText("correo"+" "+correo);
+        tvclave.setText("contraseña"+" "+contraseña);
+        tvtipo.setText("tipo"+" "+tipo);
 
 
         btnconfirmar.setOnClickListener(new View.OnClickListener() {
@@ -47,10 +53,11 @@ public class Datos extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Datos guardados correctamente",Toast.LENGTH_SHORT).show();
                 Intent irNuevo = new Intent(getApplicationContext(),Nuevo.class);
-                setResult(Nuevo.NUEVO_ACTIVITY_REQUEST,irNuevo);
+                startActivity(irNuevo);
                 finish();
             }
         });
+
         btncancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +67,7 @@ public class Datos extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        Intent irRegistro = new Intent(Datos.this,Registro.class);
+                        Intent irRegistro = new Intent(getApplicationContext(),Registro.class);
                         setResult( RESULT_CANCELED,irRegistro);
                         finish();
                     }
