@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Datos">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvnombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="nombre"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="correo"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvclave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="clave"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvtipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tipo"
+            android:ems="10"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnconfirmar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="confirmar" />
+
+        <Button
+            android:id="@+id/btncancelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="cancelar" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
