@@ -1,7 +1,9 @@
 package com.develop.julio.flujobutton;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -21,6 +23,7 @@ public class Listado extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.listadoUsuarios);
         mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(),DividerItemDecoration.HORIZONTAL));
         layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
         adapter= new UsuariosAdapter(Informacion.usuarios);
@@ -28,9 +31,17 @@ public class Listado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"item  seleccionado "+Informacion.usuarios.get(mRecyclerView.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_SHORT).show();
+                Intent irRegistro = new Intent(getApplicationContext(),Registro.class);
+                irRegistro.putExtra("nombre",Informacion.usuarios.get(mRecyclerView.getChildAdapterPosition(v)).getNombre());
+                irRegistro.putExtra("correo",Informacion.usuarios.get(mRecyclerView.getChildAdapterPosition(v)).getCorreo());
+                irRegistro.putExtra("tipo_usuario",Informacion.usuarios.get(mRecyclerView.getChildAdapterPosition(v)).getTipo());
+
+                startActivity(irRegistro);
+                finish();
 
             }
         });
+
         mRecyclerView.setAdapter(adapter);
     }
 
@@ -42,7 +53,6 @@ public class Listado extends AppCompatActivity {
             informacion.setTipo("tipo "+i);
 
             Informacion.usuarios.add(informacion);
-
         }
     }
 }

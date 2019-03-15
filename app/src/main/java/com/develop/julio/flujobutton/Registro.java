@@ -39,7 +39,10 @@ public class Registro extends AppCompatActivity {
         btnGuardar = findViewById(R.id.btnguardar);
         btnCancelar = findViewById(R.id.btncancelarR);
 
-
+        Bundle data = getIntent().getExtras();
+        if (data!= null){
+            obtenerIntent(data);
+        }
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,12 +115,13 @@ public class Registro extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        String tipo="";
         if (requestCode == REGISTRO_ACTIVITY_REQUEST){
 
             if (resultCode == RESULT_CANCELED){
                 Toast.makeText(getApplicationContext(),"operacion cancelada",Toast.LENGTH_SHORT).show();
                 //Bundle datos = getIntent().getExtras();
-                String tipo="";
+
                 try{
 
                     Bundle d = data.getExtras();
@@ -140,6 +144,26 @@ public class Registro extends AppCompatActivity {
                         break;
                 }
             }
+        }
+    }
+    private void obtenerIntent(Bundle data){
+
+        String tipo;
+        edtnombre.setText(data.getString("nombre"));
+        edtemail.setText(data.getString("correo"));
+        tipo = data.getString("tipo_usuario");
+
+
+        switch (tipo){
+            case "usuarop":
+                rbusuario.setChecked(true);
+                break;
+            case "asistente":
+                rbasistente.setChecked(true);
+                break;
+            case "administrador":
+                rbadministrador.setChecked(true);
+                break;
         }
     }
 }
