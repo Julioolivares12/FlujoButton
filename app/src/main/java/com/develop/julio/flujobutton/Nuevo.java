@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class Nuevo extends AppCompatActivity {
 
-    private Button btnNuevo , btnSalir;
+    private Button btnNuevo , btnSalir,btnListado;
 
     static final int NUEVO_ACTIVITY_REQUEST=2;
     static final int NUEVO_REQUEST=1;
@@ -23,8 +23,15 @@ public class Nuevo extends AppCompatActivity {
 
         btnNuevo = findViewById(R.id.btnnuevo);
         btnSalir = findViewById(R.id.btnsalir);
+        btnListado = findViewById(R.id.btnListado);
 
-
+        btnListado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 Intent irListado = new Intent(getApplicationContext(),Listado.class);
+                 startActivity(irListado);
+            }
+        });
         btnNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

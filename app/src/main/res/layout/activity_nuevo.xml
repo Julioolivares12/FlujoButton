@@ -25,9 +25,33 @@
             android:text="nuevo" />
 
         <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="buscar" />
+
+        <Button
+            android:id="@+id/btnEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Editar" />
+
+        <Button
             android:id="@+id/btnsalir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="salir" />
+
+        <Button
+            android:id="@+id/tbnEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="eliminar" />
+
+        <Button
+            android:id="@+id/btnListado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="listado" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
