@@ -1,5 +1,6 @@
 package com.develop.julio.flujobutton;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -62,7 +63,7 @@ public class Datos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                //Context context;
                 Snackbar.make(v,"quieres salir",Snackbar.LENGTH_LONG).setAction("si", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

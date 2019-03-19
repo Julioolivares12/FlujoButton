@@ -12,10 +12,11 @@ import android.widget.Toast;
 
 public class Nuevo extends AppCompatActivity {
 
-    private Button btnNuevo , btnSalir,btnListado;
+    private Button btnNuevo , btnSalir,btnListado,btnBuscar,btnEditar,btnEliminar;
 
     static final int NUEVO_ACTIVITY_REQUEST=2;
     static final int NUEVO_REQUEST=1;
+    public String operacion="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,9 @@ public class Nuevo extends AppCompatActivity {
         btnNuevo = findViewById(R.id.btnnuevo);
         btnSalir = findViewById(R.id.btnsalir);
         btnListado = findViewById(R.id.btnListado);
+        btnBuscar = findViewById(R.id.btnBuscar);
+        btnEditar = findViewById(R.id.btnEditar);
+        btnEliminar = findViewById(R.id.btnEliminar);
 
         btnListado.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +54,32 @@ public class Nuevo extends AppCompatActivity {
                         finish();
                     }
                 }).show();
+            }
+        });
+
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacion = "eliminar";
+                Intent irEliminar = new Intent(getApplicationContext(),Buscar.class);
+                irEliminar.putExtra("operacion",operacion);
+                startActivityForResult(irEliminar,Buscar.BUSCAR_ACTIVITY_REQUEST);
+            }
+        });
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacion = "buscar";
+                Intent irEditar = new Intent(getApplicationContext(),Buscar.class);
+                irEditar.putExtra("operacion",operacion);
+            }
+        });
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacion = "editar";
+                Intent irEditar = new Intent(getApplicationContext(),Buscar.class);
+                irEditar.putExtra("operacion",operacion);
             }
         });
     }

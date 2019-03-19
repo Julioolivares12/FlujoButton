@@ -19,7 +19,8 @@
         <activity android:name=".Datos" />
         <activity android:name=".Nuevo" />
         <activity android:name=".Registro" />
-        <activity android:name=".Listado"></activity>
+        <activity android:name=".Listado" />
+        <activity android:name=".Buscar"></activity>
     </application>
 
 </manifest>
